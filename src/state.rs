@@ -27,8 +27,16 @@ impl Pack for Mint {
     }
 
     fn unpack_from_slice(src: &[u8]) -> Result<Self, ProgramError> {
-        let is_initialized = src.get(0)? as bool;
-        Ok(Mint { is_initialized })
+        match src.get(0) {
+            Some(val) => {
+                let is_initialized = (*val) != 0;
+                Ok(Mint { is_initialized })
+            }
+
+            None => {
+                Err(ProgramError::InvalidAccountData)
+            }
+        }
     }
 }
 
@@ -61,9 +69,8 @@ impl Pack for Account {
         mint_dst.copy_from_slice(self.mint.as_ref());
         owner_dst.copy_from_slice(self.owner.as_ref());
         amount_dst[0] = self.amount;
-        is_initialized_dst[0] = self.is_initialized;
+        is_initialized_dst[0] = self.is_initialized as u8;
     }
-
 
     fn unpack_from_slice(src: &[u8]) -> Result<Self, ProgramError> {
         let src = array_ref![src, 0, 66];
@@ -72,7 +79,7 @@ impl Pack for Account {
             mint: Pubkey::new_from_array(*mint),
             owner: Pubkey::new_from_array(*owner),
             amount: amount[0],
-            is_initialized: is_initialized[0] as bool,
+            is_initialized: is_initialized[0] != 0,
         })
     }
 }

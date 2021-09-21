@@ -1,4 +1,8 @@
 mod state;
+mod instructions;
+mod entrypoint;
+mod error;
+mod processor;
 
 #[cfg(test)]
 mod tests {
