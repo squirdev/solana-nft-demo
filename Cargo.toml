@@ -1,0 +1,10 @@
+[package]
+name = "solana-nft-demo"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+solana-program = "1.7.11"
+arrayref = "0.3.6"
