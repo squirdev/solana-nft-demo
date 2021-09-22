@@ -1,10 +1,4 @@
-use solana_program::{
-    instruction::{AccountMeta, Instruction},
-    program_error::ProgramError,
-    program_option::COption,
-    pubkey::Pubkey,
-    sysvar,
-};
+use solana_program::program_error::ProgramError;
 
 use crate::{error::TokenError};
 
@@ -65,8 +59,6 @@ pub enum TokenInstruction {
 
 impl TokenInstruction {
     pub fn unpack(input: &[u8]) -> Result<Self, ProgramError> {
-        use TokenError::InvalidInstruction;
-
         Ok(match input[0] {
             0 => TokenInstruction::InitializeMint,
             1 => TokenInstruction::InitializeAccount,

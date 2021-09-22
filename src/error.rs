@@ -1,7 +1,6 @@
 use thiserror::Error;
 use solana_program::{decode_error::DecodeError, program_error::ProgramError};
 use num_derive::FromPrimitive;
-use solana_program::program_error::PrintProgramError;
 
 // Errors that may be returned by the Token program.
 #[derive(Clone, Debug, Eq, Error, FromPrimitive, PartialEq)]

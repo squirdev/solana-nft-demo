@@ -6,16 +6,12 @@ use crate::{
 
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
-    decode_error::DecodeError,
     entrypoint::ProgramResult,
-    msg,
-    program_error::{PrintProgramError, ProgramError},
-    program_option::COption,
-    program_pack::{IsInitialized, Pack},
+    program_error::ProgramError,
+    program_pack::Pack,
     pubkey::Pubkey,
     sysvar::{rent::Rent, Sysvar},
 };
-use std::borrow::{Borrow, BorrowMut};
 use crate::state::Account;
 
 
@@ -74,7 +70,7 @@ fn _init_account(account_info: &AccountInfo, mint_info: &AccountInfo, owner_info
 }
 
 fn _get_account(account_info: &AccountInfo) -> Result<Account, ProgramError> {
-    let mut account = Account::unpack_unchecked(&account_info.data.as_ref().borrow())?;
+    let account = Account::unpack_unchecked(&account_info.data.as_ref().borrow())?;
     if account.is_initialized {
         return Err(TokenError::AlreadyInUse.into());
     }
@@ -83,7 +79,7 @@ fn _get_account(account_info: &AccountInfo) -> Result<Account, ProgramError> {
 }
 
 fn _get_mint(mint_info: &AccountInfo) -> Result<Mint, ProgramError> {
-    let mut mint = Mint::unpack_unchecked(&mint_info.data.as_ref().borrow())?;
+    let mint = Mint::unpack_unchecked(&mint_info.data.as_ref().borrow())?;
     if mint.is_initialized {
         return Err(TokenError::AlreadyInUse.into());
     }
