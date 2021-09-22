@@ -22,6 +22,7 @@ impl IsInitialized for Mint {
 
 impl Pack for Mint {
     const LEN: usize = 1;
+
     fn pack_into_slice(&self, dst: &mut [u8]) {
         dst[0] = self.is_initialized as u8;
     }

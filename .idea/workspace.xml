@@ -9,11 +9,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding state structs">
-      <change afterPath="$PROJECT_DIR$/src/entrypoint.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/instructions.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
+    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding main logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
@@ -54,9 +50,37 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.remoteExternalTools" />
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::it_works">
+  <component name="RunManager" selected="Cargo.Test tests::test_initialize_mint_success">
     <configuration name="Test tests::it_works" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package solana-nft-demo --lib tests::it_works -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::test_initialize_mint" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package solana-nft-demo --lib tests::test_initialize_mint -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::test_initialize_mint_success" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package solana-nft-demo --lib tests::test_initialize_mint_success -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
@@ -90,6 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tests::test_initialize_mint_success" />
+        <item itemvalue="Cargo.Test tests::test_initialize_mint" />
         <item itemvalue="Cargo.Test tests::it_works" />
       </list>
     </recent_temporary>
@@ -111,7 +137,9 @@
       <updated>1632139588724</updated>
       <workItem from="1632139590335" duration="2030000" />
       <workItem from="1632167820315" duration="677000" />
-      <workItem from="1632176340301" duration="9943000" />
+      <workItem from="1632176340301" duration="11862000" />
+      <workItem from="1632252742627" duration="531000" />
+      <workItem from="1632265139616" duration="3255000" />
     </task>
     <task id="LOCAL-00001" summary="adding state structs">
       <created>1632228388383</created>
@@ -120,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632228388383</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding main logic">
+      <created>1632238693895</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632238693895</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +175,29 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding state structs" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding state structs" />
+    <MESSAGE value="adding main logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding main logic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/processor.rs</url>
+          <line>40</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/processor.rs</url>
+          <line>49</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-program-1.7.12/src/rent.rs</url>
+          <line>62</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
