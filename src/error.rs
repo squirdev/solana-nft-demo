@@ -17,6 +17,8 @@ pub enum TokenError {
     InsufficientFunds,
     #[error("Account not associated with this Mint")]
     MintMismatch,
+    #[error("State does not initialized")]
+    NotInitialized,
 }
 
 impl From<TokenError> for ProgramError {

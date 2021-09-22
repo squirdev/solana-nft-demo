@@ -89,6 +89,56 @@ mod tests {
         _run_test(accounts_metas, accounts, _init_account);
     }
 
+    #[test]
+    fn test_transfer_success() {
+        let program_id = Pubkey::new_unique();
+
+        let mint_key = Pubkey::new_unique();
+
+        let (
+            owner_key,
+            mut owner,
+            owner_meta
+        ) = _generate_account(4242424242, Account::get_packed_len(), true);
+
+        let (
+            source_key,
+            mut source,
+            source_meta
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &owner_key);
+
+        Account::pack_into_slice(&Account {
+            mint: mint_key,
+            owner: owner_key,
+            amount: 1,
+            is_initialized: true,
+        }, source.data.as_mut());
+
+        let (
+            dest_key,
+            mut dest,
+            dest_meta
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &owner_key);
+
+        Account::pack_into_slice(&Account {
+            mint: mint_key,
+            owner: owner_key,
+            amount: 0,
+            is_initialized: true,
+        }, dest.data.as_mut());
+
+
+        let accounts_metas = vec![
+            source_meta,
+            dest_meta,
+            owner_meta,
+        ];
+
+        let accounts = vec![&mut source, &mut dest, &mut owner];
+
+        _run_test(accounts_metas, accounts, _transfer);
+    }
+
 
     fn _run_test<F>(accounts_metas: Vec<AccountMeta>, accounts: Vec<&mut SolanaAccount>, process: F) where F: Fn(&Pubkey, &mut [AccountInfo]) {
         let mut meta = accounts_metas
@@ -156,9 +206,35 @@ mod tests {
         );
     }
 
+    fn _transfer(program_id: &Pubkey, accounts: &mut [AccountInfo]) {
+        assert_eq!(process(program_id, accounts, TokenInstruction::Transfer.pack().as_slice()), Ok(()));
+
+        let source_index = 0;
+        let source = &mut accounts[source_index];
+        let source_data = Account::unpack_from_slice(&source.data.as_ref().borrow());
+        assert!(source_data.is_ok());
+
+        let dest_index = 1;
+        let dest = &mut accounts[dest_index];
+        let dest_data = Account::unpack_from_slice(&dest.data.as_ref().borrow());
+        assert!(dest_data.is_ok());
+
+
+        let source_data = source_data.unwrap();
+        let dest_data = dest_data.unwrap();
+
+        assert_eq!(source_data.amount, 0);
+        assert_eq!(dest_data.amount, 1);
+    }
+
     fn _generate_account(lamports: u64, space: usize, signer: bool) -> (Pubkey, SolanaAccount, AccountMeta) {
+        let owner = Pubkey::new_unique();
+        _generate_account_with_owner(lamports, space, signer, &owner)
+    }
+
+    fn _generate_account_with_owner(lamports: u64, space: usize, signer: bool, owner: &Pubkey) -> (Pubkey, SolanaAccount, AccountMeta) {
         let acc_key = Pubkey::new_unique();
-        let acc = SolanaAccount::new(lamports, space, &acc_key);
+        let acc = SolanaAccount::new(lamports, space, owner);
         let acc_meta = AccountMeta::new(acc_key, signer);
         return (acc_key, acc, acc_meta);
     }
