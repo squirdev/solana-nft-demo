@@ -9,14 +9,10 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding test for minting">
+    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="refactoring test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entrypoint.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/entrypoint.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/instructions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/instructions.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/state.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +52,20 @@
   <component name="RunManager" selected="Cargo.Test tests::test_initialize_mint_success">
     <configuration name="Test tests::it_works" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package solana-nft-demo --lib tests::it_works -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::test_initialize_account_success" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package solana-nft-demo --lib tests::test_initialize_account_success -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
@@ -118,6 +128,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test tests::test_initialize_mint_success" />
+        <item itemvalue="Cargo.Test tests::test_initialize_account_success" />
         <item itemvalue="Cargo.Test tests::test_initialize_mint" />
         <item itemvalue="Cargo.Test tests::it_works" />
       </list>
@@ -142,7 +153,7 @@
       <workItem from="1632167820315" duration="677000" />
       <workItem from="1632176340301" duration="11862000" />
       <workItem from="1632252742627" duration="531000" />
-      <workItem from="1632265139616" duration="5041000" />
+      <workItem from="1632265139616" duration="6925000" />
     </task>
     <task id="LOCAL-00001" summary="adding state structs">
       <created>1632228388383</created>
@@ -165,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632269142594</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactoring test">
+      <created>1632311025874</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632311025874</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +205,24 @@
     <MESSAGE value="adding state structs" />
     <MESSAGE value="adding main logic" />
     <MESSAGE value="adding test for minting" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding test for minting" />
+    <MESSAGE value="refactoring test" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/lib.rs</url>
+          <line>145</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/lib.rs</url>
+          <line>133</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

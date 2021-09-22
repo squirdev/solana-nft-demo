@@ -37,7 +37,7 @@ pub fn process_initialize_mint(accounts: &[AccountInfo]) -> ProgramResult {
     let rent = Rent::from_account_info(next_account_info(account_info_iter)?)?;
 
     _init_mint(mint_info, rent)?;
-    _init_account(account_info, &mint_info, &owner_info, rent)?;
+    _init_account(1, account_info, &mint_info, &owner_info, rent)?;
 
     Ok(())
 }
@@ -54,7 +54,7 @@ fn _init_mint(mint_info: &AccountInfo, rent: Rent) -> ProgramResult {
     Mint::pack(mint, &mut mint_info.data.as_ref().borrow_mut())
 }
 
-fn _init_account(account_info: &AccountInfo, mint_info: &AccountInfo, owner_info: &AccountInfo, rent: Rent) -> ProgramResult {
+fn _init_account(amount: u8, account_info: &AccountInfo, mint_info: &AccountInfo, owner_info: &AccountInfo, rent: Rent) -> ProgramResult {
     let account_data_len = account_info.data_len();
     if !rent.is_exempt(account_info.lamports(), account_data_len) {
         return Err(TokenError::NotRentExempt.into());
@@ -64,7 +64,7 @@ fn _init_account(account_info: &AccountInfo, mint_info: &AccountInfo, owner_info
 
     account.mint = *mint_info.key;
     account.owner = *owner_info.key;
-    account.amount = 1;
+    account.amount = amount;
     account.is_initialized = true;
     Account::pack(account, &mut account_info.data.as_ref().borrow_mut())
 }
@@ -96,7 +96,7 @@ pub fn process_initialize_account(accounts: &[AccountInfo]) -> ProgramResult {
     let owner_info = next_account_info(account_info_iter)?;
     let rent = Rent::from_account_info(next_account_info(account_info_iter)?)?;
 
-    _init_account(account_info, &mint_info, &owner_info, rent)
+    _init_account(0, account_info, &mint_info, &owner_info, rent)
 }
 
 pub fn process_transfer(accounts: &[AccountInfo]) -> ProgramResult {
