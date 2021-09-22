@@ -9,11 +9,15 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding init account test">
+    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding transfer test">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Xargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/nft.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/processor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +50,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.remoteExternalTools" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Cargo.Test">
     <configuration name="Test tests::it_works" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -169,7 +180,7 @@
       <workItem from="1632167820315" duration="677000" />
       <workItem from="1632176340301" duration="11862000" />
       <workItem from="1632252742627" duration="531000" />
-      <workItem from="1632265139616" duration="9323000" />
+      <workItem from="1632265139616" duration="10877000" />
     </task>
     <task id="LOCAL-00001" summary="adding state structs">
       <created>1632228388383</created>
@@ -206,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632312921957</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding transfer test">
+      <created>1632320565880</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632320565880</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +248,8 @@
     <MESSAGE value="adding test for minting" />
     <MESSAGE value="refactoring test" />
     <MESSAGE value="adding init account test" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding init account test" />
+    <MESSAGE value="adding transfer test" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding transfer test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
