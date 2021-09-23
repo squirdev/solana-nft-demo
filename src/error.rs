@@ -9,8 +9,6 @@ pub enum TokenError {
     InvalidInstruction,
     #[error("Already in use")]
     AlreadyInUse,
-    #[error("Lamport balance below rent-exempt threshold")]
-    NotRentExempt,
     #[error("Owner does not match")]
     OwnerMismatch,
     #[error("Insufficient funds")]

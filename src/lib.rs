@@ -41,16 +41,14 @@ mod tests {
             owner_meta
         ) = _generate_account(4242424242, Account::get_packed_len(), false);
 
-        let mut rent_sysvar = _rent_sysvar();
 
         let accounts_metas = vec![
             mint_meta,
             account_meta,
             owner_meta,
-            AccountMeta::new(sysvar::rent::id(), false),
         ];
 
-        let accounts = vec![&mut mint, &mut account, &mut owner, &mut rent_sysvar];
+        let accounts = vec![&mut mint, &mut account, &mut owner];
 
         _run_test(accounts_metas, accounts, _init_mint);
     }
@@ -75,16 +73,13 @@ mod tests {
             owner_meta
         ) = _generate_account(4242424242, Account::get_packed_len(), false);
 
-        let mut rent_sysvar = _rent_sysvar();
-
         let accounts_metas = vec![
             account_meta,
             mint_meta,
             owner_meta,
-            AccountMeta::new(sysvar::rent::id(), false),
         ];
 
-        let accounts = vec![&mut account, &mut mint, &mut owner, &mut rent_sysvar];
+        let accounts = vec![&mut account, &mut mint, &mut owner];
 
         _run_test(accounts_metas, accounts, _init_account);
     }

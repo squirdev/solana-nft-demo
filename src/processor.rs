@@ -31,20 +31,14 @@ pub fn process_initialize_mint(accounts: &[AccountInfo]) -> ProgramResult {
     let account_info = next_account_info(account_info_iter)?;
 
     let owner_info = next_account_info(account_info_iter)?;
-    let rent = Rent::from_account_info(next_account_info(account_info_iter)?)?;
 
-    _init_mint(mint_info, rent)?;
-    _init_account(1, account_info, &mint_info, &owner_info, rent)?;
+    _init_mint(mint_info)?;
+    _init_account(1, account_info, &mint_info, &owner_info)?;
 
     Ok(())
 }
 
-fn _init_mint(mint_info: &AccountInfo, rent: Rent) -> ProgramResult {
-    let mint_data_len = mint_info.data_len();
-    if !rent.is_exempt(mint_info.lamports(), mint_data_len) {
-        return Err(TokenError::NotRentExempt.into());
-    }
-
+fn _init_mint(mint_info: &AccountInfo) -> ProgramResult {
     let mut mint = Mint::unpack_unchecked(&mint_info.data.as_ref().borrow())?;
     if mint.is_initialized {
         return Err(TokenError::AlreadyInUse.into());
@@ -54,12 +48,7 @@ fn _init_mint(mint_info: &AccountInfo, rent: Rent) -> ProgramResult {
     Mint::pack(mint, &mut mint_info.data.as_ref().borrow_mut())
 }
 
-fn _init_account(amount: u8, account_info: &AccountInfo, mint_info: &AccountInfo, owner_info: &AccountInfo, rent: Rent) -> ProgramResult {
-    let account_data_len = account_info.data_len();
-    if !rent.is_exempt(account_info.lamports(), account_data_len) {
-        return Err(TokenError::NotRentExempt.into());
-    }
-
+fn _init_account(amount: u8, account_info: &AccountInfo, mint_info: &AccountInfo, owner_info: &AccountInfo) -> ProgramResult {
     let mut account = Account::unpack_unchecked(&account_info.data.as_ref().borrow())?;
     if account.is_initialized {
         return Err(TokenError::AlreadyInUse.into());
@@ -79,9 +68,8 @@ pub fn process_initialize_account(accounts: &[AccountInfo]) -> ProgramResult {
     let mint_info = next_account_info(account_info_iter)?;
 
     let owner_info = next_account_info(account_info_iter)?;
-    let rent = Rent::from_account_info(next_account_info(account_info_iter)?)?;
 
-    _init_account(0, account_info, &mint_info, &owner_info, rent)
+    _init_account(0, account_info, &mint_info, &owner_info)
 }
 
 pub fn process_transfer(accounts: &[AccountInfo]) -> ProgramResult {
