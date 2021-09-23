@@ -27,19 +27,19 @@ mod tests {
             mint_key,
             mut mint,
             mint_meta
-        ) = _generate_account(4242424242, Mint::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Mint::get_packed_len(), false, &program_id);
 
         let (
             account_key,
             mut account,
             account_meta
-        ) = _generate_account(4242424242, Account::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
         let (
             owner_key,
             mut owner,
             owner_meta
-        ) = _generate_account(4242424242, Account::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
 
         let accounts_metas = vec![
@@ -55,23 +55,25 @@ mod tests {
 
     #[test]
     fn test_initialize_account_success() {
+        let program_id = Pubkey::new_unique();
+
         let (
             mint_key,
             mut mint,
             mint_meta
-        ) = _generate_account(4242424242, Mint::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Mint::get_packed_len(), false, &program_id);
         Mint::pack_into_slice(&Mint { is_initialized: true }, mint.data.as_mut());
 
         let (
             account_key,
             mut account,
             account_meta
-        ) = _generate_account(4242424242, Account::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
         let (owner_key,
             mut owner,
             owner_meta
-        ) = _generate_account(4242424242, Account::get_packed_len(), false);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
         let accounts_metas = vec![
             account_meta,
@@ -94,13 +96,13 @@ mod tests {
             owner_key,
             mut owner,
             owner_meta
-        ) = _generate_account(4242424242, Account::get_packed_len(), true);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), true, &program_id);
 
         let (
             source_key,
             mut source,
             source_meta
-        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &owner_key);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
         Account::pack_into_slice(&Account {
             mint: mint_key,
@@ -113,7 +115,7 @@ mod tests {
             dest_key,
             mut dest,
             dest_meta
-        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &owner_key);
+        ) = _generate_account_with_owner(4242424242, Account::get_packed_len(), false, &program_id);
 
         Account::pack_into_slice(&Account {
             mint: mint_key,

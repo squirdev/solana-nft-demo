@@ -41,7 +41,7 @@ pub enum TokenInstruction {
     ///
     /// Accounts expected by this instruction:
     ///
-    ///   * Single owner/delegate
+    ///   * Single owner
     ///   0. `[writable]` The source account.
     ///   1. `[writable]` The destination account.
     ///   2. `[signer]` The source account's owner.

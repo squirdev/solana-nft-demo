@@ -9,9 +9,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="adding README.md">
+    <list default="true" id="4de61d57-8ca9-4c13-bcaf-2f8de390806f" name="Default Changelist" comment="removing rent check">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/instructions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/instructions.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processor.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.rs" afterDir="false" />
@@ -179,7 +178,7 @@
       <workItem from="1632176340301" duration="11862000" />
       <workItem from="1632252742627" duration="531000" />
       <workItem from="1632265139616" duration="13769000" />
-      <workItem from="1632397007832" duration="282000" />
+      <workItem from="1632397007832" duration="2248000" />
     </task>
     <task id="LOCAL-00001" summary="adding state structs">
       <created>1632228388383</created>
@@ -244,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632327220957</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="removing rent check">
+      <created>1632397331377</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1632397331377</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +277,19 @@
     <MESSAGE value="adding transfer test" />
     <MESSAGE value="adding package.json" />
     <MESSAGE value="adding README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding README.md" />
+    <MESSAGE value="removing rent check" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing rent check" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-sdk-1.7.12/src/account.rs</url>
+          <line>103</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

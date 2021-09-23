@@ -79,12 +79,12 @@ pub fn process_transfer(accounts: &[AccountInfo]) -> ProgramResult {
     let destination_info = next_account_info(account_info_iter)?;
     let signer_info = next_account_info(account_info_iter)?;
 
-    _validate_owner(source_info.owner, signer_info)?;
-
     let mut source = Account::unpack_unchecked(&source_info.data.as_ref().borrow())?;
     if !source.is_initialized {
         return Err(TokenError::NotInitialized.into());
     }
+
+    _validate_owner(&source.owner, signer_info)?;
 
     let mut destination = Account::unpack_unchecked(&destination_info.data.as_ref().borrow())?;
     if !destination.is_initialized {
